@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab Booking Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Banner styles */
+        .banner {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .banner h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00bcd4;
+        }
+
+        /* Login container styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 60px; /* To account for the banner */
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        .error {
+            font-size: 12px;
+            color: red;
+            margin-top: 5px;
+            display: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .background{
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFfzsaCY0oHnfAUdWyGZs-NqW5kLWREk0Wpw&s);
+        }
+    </style>
+</head>
+<body class="background">
+    
+    <div class="banner">
+        <h1>OOLNOW</h1>
+        <div class="nav-links">
+            <a href="http://127.0.0.1:3000/endpoint_unsaved/Untitled-1#">Home</a>
+            <a href="#contact">Contact</a>
+            <a href="#help">Help</a>
+        </div>
+    </div>
+
+    
+    <div class="login-container">
+        <div class="form-container">
+            <h1>OLLNOW</h1>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                    <span class="error" id="nameError"></span>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <span class="error" id="emailError"></span>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    <span class="error" id="phoneError"></span>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                    <span class="error" id="passwordError"></span>
+                </div>
+                <button type="submit">Sign up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Clear previous errors
+            document.querySelectorAll(".error").forEach(error => error.style.display = "none");
+
+            // Get form values
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            let isValid = true;
+
+            // Validate name
+            if (!name) {
+                showError("nameError", "Name is required");
+                isValid = false;
+            }
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                showError("emailError", "Enter a valid email address");
+                isValid = false;
+            }
+
+            // Validate phone
+            const phoneRegex = /^\d{10}$/;
+            if (!phone || !phoneRegex.test(phone)) {
+                showError("phoneError", "Enter a valid 10-digit phone number");
+                isValid = false;
+            }
+
+            // Validate password
+            if (!password || password.length < 6) {
+                showError("passwordError", "Password must be at least 6 characters long");
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Login successful!");
+                // Add form submission logic here
+            }
+        });
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

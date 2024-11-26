@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --width: 600px;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: aliceblue;
+}
+
+.bg-1{
+    height: 100vh;
+    background: url('uber_background.webp') no-repeat scroll center top transparent;
+    object-fit: cover;
+
+}
+
+nav .list-bar{
+    display: flex;
+    list-style-type: none;
+    color: white;
+}
+
+nav .list-bar li .right-side{
+    display: flex;
+    list-style-type: none;
+}
+
+nav{
+    background-color: black;
+    padding: 10px;
+}
+
+nav .list-bar>li:first-of-type{
+    padding: 10px;
+}
+
+nav li>a{
+    text-decoration: none;
+    color: white;
+}
+
+.right-side li a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.right-side li{
+    padding: 10px;
+}
+
+.list-bar>li:nth-of-type(2){
+    flex-grow: 1;
+}
+
+.right-side li button{
+    border-style: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.container{
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    background: white;
+    display: inline-block;
+    border-radius: 30px;
+    margin-bottom: 50px;
+    width: var(--width);
+    overflow: hidden;
+}
+
+.container .flex{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.container .flex .inner-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.inner-flex:hover{
+  cursor: pointer;
+}
+
+.container .flex .inner-flex img{
+    height: 25px;
+    width: 25px;
+}
+
+.container .flex{
+    border-bottom: 1px solid #575757;
+}
+
+.flex .breaker{
+  position: absolute;
+  left: 32px;
+  bottom: 0;
+  width: 120px;
+  height: 3px;
+  background: #000000;
+  transition: 0.5s;
+}
+
+.content{
+    position: relative;
+    display: flex;
+    width: calc(3 * var(--width));
+    transition: 0.5s ease;
+}
+
+.content .content-1{
+    width: var(--width);
+}
+
+.content .content-2{
+    width: var(--width);
+  }
+
+.content-3{
+    width: var(--width);
+}
+
+
+.text{
+    font-size: 41px;
+    font-weight: 600;
+    margin: 30px auto;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.content .content-1 div input{
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    font-size: 13px;
+    padding: 15px;
+    background-color:whitesmoke;
+    border-style: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.3s ease;
+}
+
+.content .content-1 div input:focus{
+    font-size: 15px;
+    outline: none;
+
+}
+
+.content .content-1 div:last-of-type{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.content .content-1 div button{
+    display: block;
+    padding: 10px;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 9px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-style: none;
+    font-size: 15px;
+    color:aqua;
+    background-color: #000000;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.content-1 div button:hover{
+    background-color: aliceblue;
+    color: #000000;
+}
+
+
+.content-2{
+    text-align: center;
+}
+
+.content-2>p{
+    padding: 15px;
+    font-weight: normal;
+    font-size: normal;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+}
+
+.content-2>button{
+    padding: 15px;
+    width: 60%;
+    cursor: pointer;
+    border-radius: 8px;
+    outline: none;
+    border-style: none;
+    color: aqua;
+    background-color: #000000;
+    transition: 0.3s ease;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
+.content-2>button:hover{
+    background-color: aliceblue;
+    color: #000000;
+}
+
+.content-2 .underline{
+    height:1px;
+    width: 48%;
+    background-color:burlywood;
+    margin: 0 auto;
+}
+
+.content-2 .underline .expansion{
+    width: 0;
+    background-color: aqua;
+    height: 3px;
+    margin: 0 auto;
+    transition: 0.8s ease;
+}
+
+.content-2 a#link{
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 2px;
+    text-decoration: none;
+    color: #575757;
+}
+
+.content-2 a#link:hover + .underline .expansion{
+    width:100%;
+}
+
+.content-3 p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px 45px;
+}
+
+.content-3 button{
+    padding: 15px;
+    margin: 20px 45px;
+    width: 130px;
+    color: aqua;
+    background-color: #000000;
+    border-style: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
+.content-3 button:hover{
+    background-color: aliceblue;
+    color: #000000;
+}
+
+#input-1:checked ~ .content{
+    translate: 0;
+}
+
+#input-2:checked ~ .content{
+    translate: -600px;
+}
+
+#input-3:checked ~ .content{
+    translate: -1200px;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+#input-1:checked ~ .flex .breaker{
+    translate: 0;
+}
+
+#input-2:checked ~ .flex .breaker{
+    translate: 188px;
+}
+
+#input-3:checked ~ .flex .breaker{
+    translate: 400px;
+}
+
+.carimg {
+    position: absolute; /* Allows precise positioning */
+    top: 20%;
+    left: 50% ;          /* Vertical distance from the top */
+    right: 60px;        /* Horizontal distance from the right */
+    width: 700px;         /* Sets the image width */
+    height: 600px;        /* Maintains the aspect ratio */
+}
+</style>
+
+</head>
+<body>
+    
+    <nav>
+        <ul class="list-bar">
+            <li><a href="#">OOLNOW</a></li>
+            <li></li>
+            <li>
+                <ul class="right-side">
+                    <li><a href="http://127.0.0.1:3000/c:/Users/Asus/OneDrive/Desktop/CSE 326/CSE 326 web-site project OLLNOW/mainfrontpage.html">Log in</a></li>
+                    <li><a href="#">Sign up</a></li>
+                    <li><button><svg width="16" height="16" viewBox="0 0 24 24" fill="none" color="white"><path d="M2 6h20v3H2V6Z" fill="currentColor"></path><path d="M2 15h20v3H2v-3Z" fill="currentColor"></path></svg></button></li>
+                </ul>
+            </li>
+        </ul> 
+    </nav>
+<div class="bg-1">
+<div class="container">
+    <input type="radio" name="input-1" id="input-1">
+    <input type="radio" name="input-1" id="input-2">
+    <input type="radio" name="input-1" id="input-3">
+    <div class="flex">
+        <label class="inner-flex flex-1" for="input-1">
+            <img src="https://www.uber-assets.com/image/upload/v1542252540/assets/6d/87af17-3970-4d01-8936-1b0ba102ea6e/original/car-front-outlined.svg" alt="Car" aria-hidden="true" >
+            <span>Ride</span>
+        </label>
+        <label class="inner-flex flex-2" for="input-2">
+            <img src="https://www.uber-assets.com/image/upload/v1558389718/assets/8e/33c8c0-f7e9-467c-924b-c70232943a47/original/Earn-filled.svg" alt="Earn" aria-hidden="true">
+            <span>Drive or <br>deliver</span>
+        </label>
+        <label class="inner-flex flex-3" for="input-3">
+            <img src="https://www.uber-assets.com/image/upload/v1674075480/assets/27/7a50c1-0782-405e-947c-83a2f4d78137/original/keys_car_filled.svg" alt="key-car-filled-icon" aria-hidden="true">
+            <span>Rent your <br> fleet</span>
+        </label>
+        <div class="breaker"></div>
+    </div>
+    <div class="content">
+        <div class="content-1">
+          <h2 class="text">
+            Request a ride now
+          </h2>
+          <div>
+            <input type="text" name="pick-loc" id="pick" placeholder="Enter pickup location">
+            <input type="text" name="drp-loc" id="drop" placeholder="Enter destination">
+          </div>
+          <div>
+            <button type="submit">Request now</button>
+            <button type="submit">Schedule for later</button>
+          </div>
+        </div>
+        <div class="content-2">
+           <h2 class="text">
+               Get in the driver’s <br>seat and get paid
+           </h2>
+           <p>Drive on the platform with the largest network of active riders.</p>
+           <button type="submit">Sign up to drive</button>
+           <a href="#" id="link">Learn more about driving and delivering</a>
+           <div class="underline">
+              <div class="expansion"></div>
+           </div>
+        </div>
+        <div class="content-3">
+            <h2 class="text">Make money by renting <br>out your car</h2>
+            <p>Connect with thousands of drivers and earn more per week with Uber’s free fleet management tools.</p>
+            <button type="button">Get started</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<img  class="carimg" src="https://img.freepik.com/free-vector/car-sharing-concept-illustration_114360-20860.jpg?t=st=1732259773~exp=1732263373~hmac=edb3e52e29bbca4208623c6dd38edb4661dac77da726ca7dd1bc2a233759a0c2&w=1060 " alt="carpic">
+
+</body>
+</html>
